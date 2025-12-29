@@ -1,10 +1,3 @@
-//
-//  BrixBoxWiFiDemoApp.swift
-//  BrixBoxWiFiDemo
-//
-//  Created by Khang Nguyen on 12/20/25.
-//
-
 import SwiftUI
 
 @main
