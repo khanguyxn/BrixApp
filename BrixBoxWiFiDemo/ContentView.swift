@@ -1,7 +1,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var loc = LocationManager()
+    
+    private let hardwareService: LocationServiceProtocol = {
+    #if DEBUG_ESP32_MOCK
+        return MockLocationService()
+    #else
+        return LocationService()
+    #endif
+    }()
     @StateObject private var wifi = WiFiClient()
 
     // One window: pick which "host endpoint" you're talking to.
