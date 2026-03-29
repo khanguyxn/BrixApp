@@ -9,7 +9,7 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
     
     //added update counter to visualize changes in gps
     @Published var updateCounter: Int = 0
-    
+    @Published var horizontalAccuracy: Double = 0.0
     
     
     private let lm = CLLocationManager()
@@ -43,6 +43,12 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         
         //added update counter to visualize changes in gps
         updateCounter += 1
+        
+        //added accuracy value
+        if let location = locations.last {
+            horizontalAccuracy = location.horizontalAccuracy
+        }
+        
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
